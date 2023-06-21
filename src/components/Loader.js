@@ -3,7 +3,10 @@ import React from "react";
 const Loader = () => {
   return (
     <div style={{ textAlign: "center", color: "red" }}>
-      <h2>Loading...</h2>
+      <img width="100%" height="100%"
+        src="https://i2.wp.com/codemyui.com/wp-content/uploads/2017/09/rotate-pulsating-loading-animation.gif"
+        alt="loading"
+      />
     </div>
   );
 };
