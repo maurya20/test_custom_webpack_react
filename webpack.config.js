@@ -27,7 +27,8 @@ module.exports = {
     ],
   },
   devServer: {
-    host: "localhost",
+    //compress: true,
+    host: "dev.mysite.com",
     port: 1995,
   },
 };

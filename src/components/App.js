@@ -5,6 +5,16 @@ class App extends Component {
   onOptionChangeHandler = (event) => {
     console.log("User Selected Value :::::- ", event.target.value);
   };
+  constructor() {
+    super();
+    this.state = {
+      stepArr: [],
+    };
+  }
+  onStart = (e) => {
+    //history.pushState("/start", 'test')
+    history.pushState({ urlPath: "/start" }, "", "/start");
+  };
   render() {
     return (
       <div>
@@ -17,6 +27,8 @@ class App extends Component {
             return <option key={index}>{option}</option>;
           })}
         </select>
+
+        <button onClick={(e) => this.onStart(e)}>Start</button>
       </div>
     );
   }
