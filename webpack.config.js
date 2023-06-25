@@ -1,15 +1,21 @@
 const path = require("path");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
-
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 module.exports = {
   entry: "./src/developer.js",
   output: {
     path: path.join(__dirname, "/dist"),
     filename: "bundle.js",
+    publicPath: "/",
   },
   plugins: [
     new HTMLWebpackPlugin({
       template: "./src/index.html",
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "src/script/default-script.js", to: "./app-bundle.js" },
+      ],
     }),
   ],
   module: {

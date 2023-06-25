@@ -14,6 +14,7 @@ class App extends Component {
   onStart = (e) => {
     //history.pushState("/start", 'test')
     history.pushState({ urlPath: "/start" }, "", "/start");
+    printArray([1, 2, 3, 4, 5, 6, 7, 77, 8, 8, 8, 8888]);
   };
   render() {
     return (
