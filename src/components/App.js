@@ -11,6 +11,12 @@ class App extends Component {
       stepArr: [],
     };
   }
+  componentDidMount() {
+    window.onbeforeunload = function (e) {
+      e && e.preventDefault();
+      return "";
+    };
+  }
   onStart = (e) => {
     //history.pushState("/start", 'test')
     history.pushState({ urlPath: "/start" }, "", "/start");
