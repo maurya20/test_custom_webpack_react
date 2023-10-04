@@ -1,12 +1,21 @@
-const arr = [1, 2, 3, 4, 5];
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("first");
+    reject(new Error("Error occured here!!!!"));
+  }, 3000);
+});
+promise
+  .then((val) => {
+    console.log(val);
+    return val + "Second";
+  })
+  .then((res) => console.log("sec>>>>>>>>", res));
 
-function add(a, ...rest) {
-  let result = 0;
+const myThenable = {
+  then: (onFulfilled) => {
+    promise.then(val=> onFulfilled(val));
+    
+  },
+};
 
-  for (let arg of rest) {
-    result += arg;
-  }
-  return result + a;
-}
-
-console.log(add(0, 1, 2, 3, 4, 5));
+myThenable.then((val) => console.log("thenable>>>>>>", val));
